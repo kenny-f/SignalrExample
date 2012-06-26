@@ -1,12 +1,9 @@
 ﻿using System;
 using System.Threading;
 using log4net;
-using log4net.Core;
 using log4net.signalr;
 using log4net.SignalR;
 using SignalR.Client.Hubs;
-
-//using SignalR.Hosting.Self;
 
 namespace ConsoleApplication1
 {
@@ -24,19 +21,9 @@ namespace ConsoleApplication1
 
             IHubProxy loggerHub = connection.CreateProxy("signalrAppenderForConsoleHub");
 
-            SignalrAppenderForConsole.Instance.Hub = loggerHub;
-
+            SignalrConsoleAppender.Instance.Hub = loggerHub;
 
             startConnection(connection);
-
-//            invokeListen(loggerHub);
-//
-//            invokeHookup(loggerHub);
-
-            loggerHub.Invoke("SayHi", "ni hao ma?").Wait();
-
-            hub.Invoke("CreatePerson",new Person{Age = 27, Name = "Kenny Fung"}).Wait();
-//            hub.Invoke("CreatePerson","Kenny Fung",27).Wait();
 
             invokeSend(hub);
 
@@ -55,7 +42,7 @@ namespace ConsoleApplication1
             }
         }
 
-        private static void invokeSend(IHubProxy hub)
+        static void invokeSend(IHubProxy hub)
         {
             hub.Invoke("Send", "from Console invoking the send method on chat hub").ContinueWith(
                 t =>
@@ -72,41 +59,7 @@ namespace ConsoleApplication1
                 );
         }
 
-        private static void invokeHookup(IHubProxy loggerHub)
-        {
-            loggerHub.Invoke("Hookup", SignalrAppenderForConsole.Instance)
-                .ContinueWith(
-                    t =>
-                        {
-                            if (t.IsFaulted)
-                            {
-                                Console.WriteLine("error calling Hookup");
-                            }
-                            else
-                            {
-                                Console.WriteLine("send complete");
-                            }
-                        }).Wait();
-        }
-
-        private static void invokeListen(IHubProxy loggerHub)
-        {
-            loggerHub.Invoke("Listen")
-                .ContinueWith(
-                    t =>
-                        {
-                            if (t.IsFaulted)
-                            {
-                                Console.WriteLine("error calling Listen: " + t.Exception);
-                            }
-                            else
-                            {
-                                Console.WriteLine("Listen complete");
-                            }
-                        }).Wait();
-        }
-
-        private static void startConnection(HubConnection connection)
+        static void startConnection(HubConnection connection)
         {
             connection.Start().ContinueWith(
                 t =>

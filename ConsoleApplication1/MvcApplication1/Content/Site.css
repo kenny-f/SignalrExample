@@ -93,7 +93,7 @@ header h1, #header h1 {
     font-weight: bold;
     padding: 5px 0;
     margin: 0;
-    color: #fff;
+    color: black;
     border: none;
     line-height: 2em;
     font-size: 32px !important;
@@ -257,21 +257,21 @@ div#title {
     display: block;
     text-align: right;
     margin: 10px;
-    color: White;
+    color: #555;
 }
 
 #logindisplay a:link {
-    color: white;
+    color: #555;
     text-decoration: underline;
 }
 
 #logindisplay a:visited {
-    color: white;
+    color: #555;
     text-decoration: underline;
 }
 
 #logindisplay a:hover {
-    color: white;
+    color: #555;
     text-decoration: none;
 }
 

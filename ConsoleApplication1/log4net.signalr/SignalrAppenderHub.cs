@@ -29,10 +29,5 @@ namespace log4net.SignalR
 
             Clients.onLoggedEvent(logEventObject);
         }
-
-        public void Hookup(SignalrAppender appender)
-        {
-            appender.MessageLogged = OnMessageLogged;
-        }
     }
 }

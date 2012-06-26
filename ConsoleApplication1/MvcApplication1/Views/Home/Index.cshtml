@@ -24,19 +24,10 @@
         // Create a proxy for the server endpoint
         var chat = $.connection.chat;
         var log4net = $.connection.signalrAppenderHub;
-        var consoleLogger = $.connection.signalrAppenderForConsoleHub;
+        var consoleLogger = $.connection.signalrConsoleAppenderHub;
         // Add a client-side callback to process any data
         // received from the server
         chat.addMessage = function (message) {
-            $('#messages').append('<li>' + message + '</li>');
-        };
-
-        chat.addPerson = function (person) {
-            $('#messages').append('<li>' + person.Name + '</li>');
-            $('#messages').append('<li>' + person.Age + '</li>');
-        };
-
-        log4net.addMessage = function (message) {
             $('#messages').append('<li>' + message + '</li>');
         };
 
@@ -48,9 +39,6 @@
             $('#messages').append('<li>' + loggedEvent.Timestamp + " -- " + loggedEvent.Level + " -- " + loggedEvent.Message + '</li>');
         };
 
-        consoleLogger.sayHi = function (message) {
-            $('#messages').append('<li>' + message + '</li>');
-        };
         // Start the conversation
         $.connection.hub.start(function () {
             chat.send("from callback");

@@ -4,15 +4,15 @@ using SignalR.Client.Hubs;
 
 namespace log4net.SignalR
 {
-    public class SignalrAppenderForConsole : Appender.AppenderSkeleton
+    public class SignalrConsoleAppender : Appender.AppenderSkeleton
     {
         private FixFlags _fixFlags = FixFlags.All;
 
         public Action<LogEntry> MessageLogged;
 
-        public static SignalrAppenderForConsole Instance { get; private set; }
+        public static SignalrConsoleAppender Instance { get; private set; }
 
-        public SignalrAppenderForConsole()
+        public SignalrConsoleAppender()
         {
             Instance = this;
         }
