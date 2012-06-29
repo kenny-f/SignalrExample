@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Threading;
 using log4net;
-using log4net.signalr;
 using log4net.SignalR;
 using SignalR.Client.Hubs;
 
@@ -17,7 +16,7 @@ namespace ConsoleApplication1
 
             var connection = new HubConnection(url);
 
-            IHubProxy loggerHub = connection.CreateProxy("signalrConsoleAppenderHub");
+            IHubProxy loggerHub = connection.CreateProxy(typeof(SignalrConsoleAppenderHub).GetHubName());
 
             SignalrConsoleAppender.Instance.Hub = loggerHub;
 
