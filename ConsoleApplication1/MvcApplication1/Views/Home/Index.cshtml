@@ -2,48 +2,7 @@
     ViewBag.Title = "Home Page";
 }
 
-<h2>@ViewBag.Message</h2>
 <p>
     To learn more about ASP.NET MVC visit <a href="http://asp.net/mvc" title="ASP.NET MVC Website">http://asp.net/mvc</a>.
 </p>
 
-<div>
-    <ul id="messages">
-        <li>first item</li>
-    </ul>
-
-    <input id="msg" type="text"/>
-    <button id="sendButton">Send</button>
-</div>
-
-@*<script type="text/javascript">
-    $(document).ready(function () {    // Add handler to Send button
-        $("#sendButton").click(function () {
-            chat.send($('#msg').val());
-        });
-        // Create a proxy for the server endpoint
-        var chat = $.connection.chat;
-        var log4net = $.connection.signalrAppenderHub;
-        var consoleLogger = $.connection.signalrConsoleAppenderHub;
-        // Add a client-side callback to process any data
-        // received from the server
-        chat.addMessage = function (message) {
-            $('#messages').append('<li>' + message + '</li>');
-        };
-
-        log4net.onLoggedEvent = function (loggedEvent) {
-            $('#messages').append('<li>' + loggedEvent.Message + '</li>');
-        };
-
-        consoleLogger.onLoggedEvent = function (loggedEvent) {
-            $('#messages').append('<li>' + loggedEvent.Timestamp + " -- " + loggedEvent.Level + " -- " + loggedEvent.Message + '</li>');
-        };
-
-        // Start the conversation
-        $.connection.hub.start(function () {
-            chat.send("from callback");
-            log4net.listen();
-        }
-        );
-    });
-</script>*@

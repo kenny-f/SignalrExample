@@ -1,11 +1,12 @@
 ﻿@{
     ViewBag.Title = "Sample Chat app to learn SignalR";
 }
+<h2>@ViewBag.Title</h2>
 
-@*<script type="text/javascript">
+<script type="text/javascript">
     $(document).ready(function () {    // Add handler to Send button
-        $("#sendButton").click(function () {
-            chat.send($('#msg').val());
+        $("#chatButton").click(function () {
+            chat.send($('#chatMsg').val());
         });
         // Create a proxy for the server endpoint
         var chat = $.connection.chat;
@@ -13,7 +14,7 @@
         // Add a client-side callback to process any data
         // received from the server
         chat.addMessage = function (message) {
-            $('#messages').append('<li>' + message + '</li>');
+            $('#chatMessages').append('<li>' + message + '</li>');
         };
 
         // Start the conversation
@@ -21,4 +22,12 @@
             chat.send("from callback");
         });
     });
-</script>*@
+</script>
+
+<div>
+    <input type="text" id="chatMsg"/>
+    <button id="chatButton">Send</button>
+
+    <ul id="chatMessages">
+    </ul>
+</div>

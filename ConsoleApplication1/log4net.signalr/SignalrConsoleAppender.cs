@@ -43,17 +43,6 @@ namespace log4net.SignalR
 
             if (Hub != null)
             {
-                Hub.Invoke("SayHi", loggingEvent.RenderedMessage)
-                    .ContinueWith(t=>
-                                      {
-                                          if (t.IsFaulted)
-                                          {
-                                              Console.WriteLine("error calling SayHi: "+t.Exception);
-                                          }
-                                      }
-                    ).Wait();
-                
-
                 Hub.Invoke("OnMessageLogged", logEntry)
                     .ContinueWith(t=>
                                       {

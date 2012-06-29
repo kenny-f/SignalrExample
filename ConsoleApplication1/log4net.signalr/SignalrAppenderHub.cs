@@ -29,5 +29,10 @@ namespace log4net.SignalR
 
             Clients.onLoggedEvent(logEventObject);
         }
+
+        public void LogMessage()
+        {
+            LogManager.GetLogger(typeof(SignalrAppenderHub)).Info("just a log message");
+        }
     }
 }

@@ -17,15 +17,11 @@ namespace ConsoleApplication1
 
             var connection = new HubConnection(url);
 
-            IHubProxy hub = connection.CreateProxy("chat");
-
-            IHubProxy loggerHub = connection.CreateProxy("signalrAppenderForConsoleHub");
+            IHubProxy loggerHub = connection.CreateProxy("signalrConsoleAppenderHub");
 
             SignalrConsoleAppender.Instance.Hub = loggerHub;
 
             startConnection(connection);
-
-            invokeSend(hub);
 
             Thread.Sleep(10000);
 
@@ -40,23 +36,6 @@ namespace ConsoleApplication1
                     break;
                 }
             }
-        }
-
-        static void invokeSend(IHubProxy hub)
-        {
-            hub.Invoke("Send", "from Console invoking the send method on chat hub").ContinueWith(
-                t =>
-                    {
-                        if (t.IsFaulted)
-                        {
-                            Console.WriteLine("error calling send");
-                        }
-                        else
-                        {
-                            Console.WriteLine("send complete");
-                        }
-                    }
-                );
         }
 
         static void startConnection(HubConnection connection)
