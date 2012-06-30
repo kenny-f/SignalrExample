@@ -45,6 +45,9 @@
                                 <li class="divider-vertical"></li>
                                 <li class="@(ViewBag.Active == "Logging" ? "active" : "")">
                                     @Html.ActionLink("Logging", "Index", "Logging")
+                                </li><li class="divider-vertical"></li>
+                                <li class="@(ViewBag.Active == "MultipleWorkers" ? "active" : "")">
+                                    @Html.ActionLink("MultipleWorkers", "Index", "MultipleWorkers")
                                 </li>
                             </ul>
                         </div>

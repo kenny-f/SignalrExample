@@ -64,6 +64,7 @@
   <ItemGroup>
     <Compile Include="Chat.cs" />
     <Compile Include="LogEntryForConsole.cs" />
+    <Compile Include="MultipleWorkersHub.cs" />
     <Compile Include="SignalrConsoleAppender.cs" />
     <Compile Include="SignalrConsoleAppenderHub.cs" />
     <Compile Include="SignalrAppenderHub.cs" />

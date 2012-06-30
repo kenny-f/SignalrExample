@@ -6,6 +6,7 @@ namespace log4net.signalr
     {
         public void Send(string message)
         {
+            
             Clients.addMessage(message);
         }
     }

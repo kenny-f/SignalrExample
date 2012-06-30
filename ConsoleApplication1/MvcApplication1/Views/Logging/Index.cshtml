@@ -1,25 +1,37 @@
 ﻿@{
     ViewBag.Title = "Logging using signalr and log4net";
 }
-
 <h2>@ViewBag.Title</h2>
-
 <div>
-    <input id="msg" type="text"/>
-    <button id="logMessageBtn">Log Message</button>
-
-    <ul id="messages">
+    <input id="msg" type="text" />
+    <button id="logMessageBtn">
+        Log Message</button>
+</div>
+<div class="row show-grid">
+    <div class="span6">
+        <div>
+            <p>Log messages from console</p>
+            <ul id="consolemessages">
+                <li>first item</li>
+            </ul>
+        </div>
+    </div>
+    <div class="span6">
+        <div>
+            <p>Log messages from MVC</p>
+            <ul id="messages">
         <li>first item</li>
     </ul>
+        </div>
+    </div>
 </div>
-
 <script type="text/javascript">
     $(document).ready(function () {    // Add handler to Send button
         $("#logMessageBtn").click(function () {
             log4net.logMessage();
         });
 
-                // Create a proxy for the server endpoint
+        // Create a proxy for the server endpoint
         var log4net = $.connection.signalrAppenderHub;
         var consoleLogger = $.connection.signalrConsoleAppenderHub;
         // Add a client-side callback to process any data
@@ -29,7 +41,7 @@
         };
 
         consoleLogger.onLoggedEvent = function (loggedEvent) {
-            $('#messages').append('<li>' + loggedEvent.Timestamp + " -- " + loggedEvent.Level + " -- " + loggedEvent.Message + '</li>');
+            $('#consolemessages').append('<li>' + loggedEvent.Timestamp + " -- " + loggedEvent.Level + " -- " + loggedEvent.Message + '</li>');
         };
 
         // Start the conversation

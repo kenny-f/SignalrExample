@@ -9,25 +9,11 @@ namespace log4net.SignalR
             SignalrAppender.Instance.MessageLogged = OnMessageLogged;
         }
 
-        public void OnMessageLogged(LogEntry e)
+        public void OnMessageLogged(LogEntryForConsole e)
         {
-            var logEventObject = new
-            {
-                e.FormattedEvent,
-                Message = e.LoggingEvent.ExceptionObject != null ? e.LoggingEvent.ExceptionObject.Message : e.LoggingEvent.RenderedMessage,
-                Level = e.LoggingEvent.Level.Name,
-                TimeStamp = e.LoggingEvent.TimeStamp.ToString("yyyy-MM-dd HH:mm:ss.fff")
-                /* e.LoggingEvent.Domain,
-                e.LoggingEvent.Identity,
-                e.LoggingEvent.LocationInformation,
-                e.LoggingEvent.LoggerName,
-                e.LoggingEvent.MessageObject,
-                e.LoggingEvent.Properties,
-                e.LoggingEvent.ThreadName,
-                e.LoggingEvent.UserName */
-            };
+            e.Message = e.Message + Caller.id;
 
-            Clients.onLoggedEvent(logEventObject);
+           Clients.onLoggedEvent(e);
         }
 
         public void LogMessage()

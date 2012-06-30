@@ -7,7 +7,7 @@ namespace log4net.SignalR
     {
         private FixFlags _fixFlags = FixFlags.All;
 
-        public Action<LogEntry> MessageLogged;
+        public Action<LogEntryForConsole> MessageLogged;
 
         public static SignalrAppender Instance { get; private set; }
 
@@ -34,7 +34,15 @@ namespace log4net.SignalR
             var handler = MessageLogged;
             if (handler != null)
             {
-                handler(new LogEntry(formattedEvent, loggingEvent));
+                var logEntry = new LogEntryForConsole
+                {
+                    Level = loggingEvent.Level.Name,
+                    Message = loggingEvent.ExceptionObject != null
+                                  ? loggingEvent.ExceptionObject.Message
+                                  : loggingEvent.RenderedMessage,
+                    TimeStamp = loggingEvent.TimeStamp.ToString("yyyy-MM-dd HH:mm:ss.fff")
+                };
+                handler(logEntry);
             }
         }
     }
