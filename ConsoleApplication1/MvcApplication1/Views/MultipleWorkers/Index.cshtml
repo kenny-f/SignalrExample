@@ -4,7 +4,7 @@
 <h2>@ViewBag.Title</h2>
 <div>
 </div>
-<div class="row show-grid">
+<div id="thegrid" class="row show-grid">
     <div class="span6">
         <div>
             <p>
@@ -50,6 +50,9 @@
 
             if ($('#' + id).length)
             { }
+            else
+            {$('#thegrid').append
+            }
 
             $('#firstList').append('<li>' + message + '</li>');
         };

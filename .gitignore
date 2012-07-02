@@ -82,6 +82,9 @@ ipch/
 # ReSharper is a .NET coding add-in
 _ReSharper*
 
+# NCrunch is a unit testing tool
+*crunchsolution.cache
+
 # Installshield output folder 
 [Ee]xpress
 
