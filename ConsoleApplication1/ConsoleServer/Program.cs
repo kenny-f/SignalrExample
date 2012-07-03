@@ -1,14 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace ConsoleServer
+﻿namespace ConsoleServer
 {
     class Program
     {
+        const string url = "";
+
         static void Main(string[] args)
         {
+
         }
     }
 }
