@@ -6,9 +6,7 @@ namespace log4net.SignalR
 {
     public class SignalrConsoleAppender : Appender.AppenderSkeleton
     {
-        private FixFlags _fixFlags = FixFlags.All;
-
-        public Action<LogEntry> MessageLogged;
+        FixFlags _fixFlags = FixFlags.All;
 
         public static SignalrConsoleAppender Instance { get; private set; }
 
