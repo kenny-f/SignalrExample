@@ -86,6 +86,7 @@ _ReSharper*
 *crunchsolution.cache
 *.cache
 *cache
+_NCrunch*
 
 # Installshield output folder 
 [Ee]xpress
