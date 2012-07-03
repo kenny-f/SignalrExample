@@ -1,5 +1,6 @@
 ﻿using System;
 using ConsoleServer;
+using log4net.signalr;
 using SignalR.Client.Hubs;
 
 namespace ConsoleApplication1
@@ -12,12 +13,12 @@ namespace ConsoleApplication1
 
             var connection = new HubConnection(url);
 
-            IHubProxy serverHub = connection.CreateProxy(typeof(ServerHub).GetHubName());
-            
+            IHubProxy serverHub = connection.CreateProxy(typeof (ServerHub).GetHubName());
+
             serverHub.On("foo", () => Console.WriteLine("notified!"));
-            
+
             serverHub.On("foo", s => Console.WriteLine(s));
-            
+
             startConnection(connection);
 
             serverHub.Invoke("SendMessage", "hello from Console Client").Wait();
