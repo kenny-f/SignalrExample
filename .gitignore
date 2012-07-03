@@ -84,6 +84,8 @@ _ReSharper*
 
 # NCrunch is a unit testing tool
 *crunchsolution.cache
+*.cache
+*cache
 
 # Installshield output folder 
 [Ee]xpress
