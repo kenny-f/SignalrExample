@@ -22,28 +22,34 @@
  
 </style>
 <script type="text/javascript">
-    $(document).ready(function () {
-        //        $("#submitbtn").click(function () {
-        $("#loading").fadeIn();
-        var opts = {
-            lines: 8, // The number of lines to draw
-            length: 3, // The length of each line
-            width: 2, // The line thickness
-            radius: 3, // The radius of the inner circle
-            color: '#000', // #rgb or #rrggbb
-            speed: 1.5, // Rounds per second
-            trail: 60, // Afterglow percentage
-            shadow: false, // Whether to render a shadow
-            hwaccel: false // Whether to use hardware acceleration
-        };
-        var target = document.getElementById('loading');
-        var spinner = new Spinner(opts).spin(target);
-        //        });
+    $(document).ready(function () 
+    {
+        $("#datepicker").datepicker();
+
+        $("#status").click(function () 
+        {
+            $("#loading").fadeIn();
+            var opts = {
+                lines: 8, // The number of lines to draw
+                length: 3, // The length of each line
+                width: 2, // The line thickness
+                radius: 3, // The radius of the inner circle
+                color: '#000', // #rgb or #rrggbb
+                speed: 1.5, // Rounds per second
+                trail: 60, // Afterglow percentage
+                shadow: false, // Whether to render a shadow
+                hwaccel: false // Whether to use hardware acceleration
+            };
+            var target = document.getElementById('loading');
+            var spinner = new Spinner(opts).spin(target);
+        });
     });
 </script>
 <h2> TeamCity Clone</h2>
 
 
+
+<div>
     <table class="table table-striped table-bordered table-condensed">
         <thead>
             <tr>
@@ -68,7 +74,7 @@
                     <div class="navcontainer">
                         <ul>
                             <li id='loading'></li>
-                            <li >running </li>
+                            <li><a id='status'>running </a></li>
                         </ul>
                     </div>
                 </td>
@@ -87,4 +93,10 @@
             </tr>
         </tbody>
     </table>
+</div>
+
+
+<div>
+    <p>Date: <input type="text" id="datepicker"/>
+    <button id="jobButton">Run</button></p>
 </div>
