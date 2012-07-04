@@ -1,14 +1,49 @@
 ﻿@{
     ViewBag.Title = "Index";
 }
+<style type="text/css">
+    .navcontainer ul
+    {
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+    }
+    
+    .navcontainer ul li  
+    {
+        display: inline; 
+    }
+    
+    .navcontainer #loading
+    {
+        @*margin-left:2em;*@
+    }
+    
+ 
+</style>
 <script type="text/javascript">
     $(document).ready(function () {
-
+        //        $("#submitbtn").click(function () {
+        $("#loading").fadeIn();
+        var opts = {
+            lines: 8, // The number of lines to draw
+            length: 3, // The length of each line
+            width: 2, // The line thickness
+            radius: 3, // The radius of the inner circle
+            color: '#000', // #rgb or #rrggbb
+            speed: 1.5, // Rounds per second
+            trail: 60, // Afterglow percentage
+            shadow: false, // Whether to render a shadow
+            hwaccel: false // Whether to use hardware acceleration
+        };
+        var target = document.getElementById('loading');
+        var spinner = new Spinner(opts).spin(target);
+        //        });
     });
 </script>
-<h2>
-    TeamCity Clone</h2>
-<div class="span8">
+<h2> TeamCity Clone</h2>
+
+
     <table class="table table-striped table-bordered table-condensed">
         <thead>
             <tr>
@@ -29,7 +64,14 @@
                 <td>1 </td>
                 <td>DataImport </td>
                 <td>20/07/2012</td>
-                <td>running</td>
+                <td>
+                    <div class="navcontainer">
+                        <ul>
+                            <li id='loading'></li>
+                            <li >running </li>
+                        </ul>
+                    </div>
+                </td>
             </tr>
             <tr>
                 <td>2 </td>
@@ -39,8 +81,8 @@
             </tr>
             <tr>
                 <td>3</td>
-                <td >DataImport </td>
-                <td >20/07/2012</td>
+                <td>DataImport </td>
+                <td>20/07/2012</td>
                 <td>queued </td>
             </tr>
         </tbody>
