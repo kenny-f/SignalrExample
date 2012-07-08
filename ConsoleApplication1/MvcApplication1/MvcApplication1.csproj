@@ -93,9 +93,6 @@
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\ClientList.cs" />
     <Compile Include="Models\ClientListHub.cs" />
-    <Compile Include="Models\Job.cs" />
-    <Compile Include="Models\JobHub.cs" />
-    <Compile Include="Models\JobLog.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
