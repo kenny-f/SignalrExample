@@ -1,5 +1,4 @@
-﻿using SignalR;
-using SignalR.Hubs;
+﻿using SignalR.Hubs;
 
 namespace log4net.SignalR
 {
