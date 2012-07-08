@@ -3,3 +3,33 @@
 }
 
 <h2>JobStaus</h2>
+
+<button id="button">Send</button>
+
+<ul id='logmessages'>
+
+</ul>
+
+
+
+
+<script type="text/javascript">
+    $(document).ready(function () { 
+
+        $("#button").click(function () {
+            clientHub.sendMessage("hihi");
+        });
+       
+       // Create a proxy for the server endpoint
+        var clientHub = $.connection.clientListHub;
+        
+        // Add a client-side callback to process any data
+        // received from the server
+        clientHub.pushMessage = function (message) {
+            $('#logmessages').append('<li>' + message + '</li>');
+        };
+        
+        // Start the conversation
+        $.connection.hub.start();
+    });
+</script>

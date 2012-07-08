@@ -6,7 +6,9 @@ namespace ConsoleApplication1
     {
         static void Main(string[] args)
         {
-            new SignalrConsoleServerTestApplication().Start();
+            new FakeLogGenerator().Start();
+            
+            //new SignalrConsoleServerTestApplication().Start();
             
            // new LoggingApplication().Start();
 

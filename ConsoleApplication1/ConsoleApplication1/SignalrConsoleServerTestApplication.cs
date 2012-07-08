@@ -1,6 +1,5 @@
 ﻿using System;
 using ConsoleServer;
-using log4net.signalr;
 using SignalR.Client.Hubs;
 
 namespace ConsoleApplication1
